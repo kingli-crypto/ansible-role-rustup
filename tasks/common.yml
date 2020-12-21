@@ -1,5 +1,5 @@
 ---
 
 - name: install all common packages
-  shell: ~/.cargo/bin/rustup run stable cargo install {{ item }}
+  shell: ~/.cargo/bin/rustup run {{ common.toolchain }} cargo install {{ item }}
   with_items: "{{ common.crates }}"

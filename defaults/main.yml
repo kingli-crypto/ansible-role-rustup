@@ -5,8 +5,11 @@ conf:
   shell: fish
   specifics: true
   parallel: false
+  defaultToolchain: false
+  # Set default toolchain
 
 common:
+  toolchain: stable
   crates:
     - rustfmt
     - racer

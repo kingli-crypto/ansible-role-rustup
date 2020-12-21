@@ -2,9 +2,14 @@
 
 - name: install rust by rustup
   shell: curl https://sh.rustup.rs -sSf | sh -s -- -y
+  become: true
 
 - name: install autocomplete
   include: "autocomplete.yml"
+
+- name: set default toolchain
+  shell:  ~/.cargo/bin/rustup default {{ common.toolchain }}
+  when: conf.defaultToolchain
 
 - name: common
   include: "common.yml"
@@ -12,4 +17,3 @@
 - name: specific
   include: "specific.yml"
   when: conf.specifics
-
